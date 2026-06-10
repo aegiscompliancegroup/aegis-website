@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aegis Compliance Group — RAMS &amp; Compliance Docs in 48 Hours</title>
+<meta name="description" content="Client-ready RAMS, method statements, risk assessments and compliance packs in 48 hours. Fixed price. No retainers. Hull, East Yorkshire. Serving contractors nationwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════
+   RESET & TOKENS
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal:        #1a8a96;
+  --teal-dark:   #117580;
+  --teal-bright: #22b8ca;
+  --teal-dim:    rgba(26,138,150,0.13);
+  --teal-glow:   rgba(26,138,150,0.08);
+
+  --dark:        #0c1018;
+  --dark-2:      #141920;
+  --dark-3:      #1a2230;
+  --charcoal:    #1e1e1e;
+  --warm-white:  #f5f2ed;
+  --off-white:   #fafaf8;
+  --white:       #ffffff;
+
+  --text:        #1a1a1a;
+  --text-muted:  #6b6b6b;
+  --text-faint:  #9e9e9e;
+  --border:      #e3dfda;
+  --border-dark: rgba(255,255,255,0.07);
+
+  --font-serif: 'DM Serif Display', serif;
+  --font-ui:    'Syne', sans-serif;
+  --font-body:  'Epilogue', sans-serif;
+
+  --nav-h: 80px;
+  --max-w: 1200px;
+  --r:     12px;
+  --r-sm:  8px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.65;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════ */
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.eyebrow.centered { justify-content: center; }
+.eyebrow.centered::before { display: none; }
+.eyebrow.light { color: var(--teal-bright); }
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.5vw, 48px);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: var(--charcoal);
+  margin-bottom: 18px;
+}
+.section-title.wide { max-width: 100%; }
+.section-title.white { color: #fff; }
+
+.section-sub {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 540px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.section-sub.dim { color: rgba(255,255,255,0.42); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: var(--teal);
+  color: #fff;
+  padding: 15px 28px;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(26,138,150,0.35);
+}
+.btn-primary svg { transition: transform 0.2s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 14px 24px;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.06);
+}
+.btn-outline svg { transition: transform 0.2s; }
+.btn-outline:hover svg { transform: translateX(3px); }
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATIONS
+═══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.in { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════
+   NOISE LAYER
+═══════════════════════════════════════════ */
+.noise-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 300px;
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  height: var(--nav-h);
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: var(--border);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.nav-logo img { width: 260px; height: auto; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+nav.scrolled .nav-links a { color: var(--text-muted); }
+.nav-links a:hover { color: #fff; }
+nav.scrolled .nav-links a:hover { color: var(--teal); }
+
+.nav-cta {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: var(--teal);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-1px); }
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-burger span {
+  display: block;
+  width: 22px; height: 1.8px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: background 0.3s, transform 0.3s, opacity 0.3s;
+}
+nav.scrolled .nav-burger span { background: var(--charcoal); }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.8px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.8px) rotate(-45deg); }
+
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: var(--nav-h); left: 0; right: 0;
+  background: var(--dark);
+  border-top: 1px solid var(--border-dark);
+  padding: 24px 5% 32px;
+  z-index: 850;
+  flex-direction: column;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border-dark);
+  transition: color 0.2s;
+}
+.nav-drawer a:hover { color: var(--teal-bright); }
+.nav-drawer .drawer-cta {
+  margin-top: 20px;
+  background: var(--teal);
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  padding: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-glow-a {
+  position: absolute;
+  top: -160px; left: -120px;
+  width: 750px; height: 750px;
+  background: radial-gradient(ellipse, rgba(26,138,150,0.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-glow-b {
+  position: absolute;
+  bottom: -200px; right: -80px;
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(26,138,150,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-glow-c {
+  position: absolute;
+  top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px; height: 400px;
+  background: radial-gradient(ellipse, rgba(26,138,150,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 80px) 5% 80px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,138,150,0.14);
+  border: 1px solid rgba(26,138,150,0.3);
+  border-radius: 100px;
+  padding: 6px 14px 6px 8px;
+  margin-bottom: 28px;
+}
+.hero-badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--teal-bright);
+  animation: blink 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.hero-badge-text {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--teal-bright);
+}
+
+.hero-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 5vw, 66px);
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--teal-bright);
+}
+
+.hero-p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat-num span { color: var(--teal-bright); }
+.hero-stat-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* Doc Card */
+.doc-card {
+  background: var(--dark-2);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 48px 96px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(26,138,150,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  animation: cardFloat 7s ease-in-out infinite;
+}
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+.dc-head {
+  background: var(--teal);
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dc-head-brand { display: flex; align-items: center; gap: 10px; }
+.dc-shield {
+  width: 30px; height: 30px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.dc-shield svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; }
+.dc-brand-name {
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.92);
+  text-transform: uppercase;
+}
+.dc-ref { font-family: var(--font-ui); font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; }
+
+.dc-body { padding: 22px 22px 16px; }
+.dc-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.dc-meta-label {
+  font-family: var(--font-ui);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 4px;
+}
+.dc-meta-value { font-size: 12px; color: rgba(255,255,255,0.78); }
+.dc-list-label {
+  font-family: var(--font-ui);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 10px;
+}
+.dc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 12px;
+  color: rgba(255,255,255,0.72);
+}
+.dc-item:last-child { border-bottom: none; }
+.dc-tick {
+  width: 18px; height: 18px;
+  background: rgba(26,138,150,0.22);
+  border: 1px solid rgba(26,138,150,0.5);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.dc-tick svg { width: 10px; height: 10px; stroke: var(--teal-bright); fill: none; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; }
+.dc-foot {
+  background: rgba(26,138,150,0.09);
+  border-top: 1px solid rgba(26,138,150,0.18);
+  padding: 13px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dc-status {
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--teal-bright);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.dc-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--teal-bright);
+  animation: blink 2.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.dc-timer { font-family: var(--font-ui); font-size: 10px; color: rgba(255,255,255,0.28); letter-spacing: 0.03em; }
+
+/* ═══════════════════════════════════════════
+   TRUST BAR
+═══════════════════════════════════════════ */
+.trust-bar {
+  background: var(--warm-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 5%;
+  overflow: hidden;
+}
+.trust-bar-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.trust-label {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.trust-sep { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+.trust-pills { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+.trust-pill {
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--charcoal);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.trust-pill::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION WRAPPERS
+═══════════════════════════════════════════ */
+.sw { padding: 100px 5%; }
+.si { max-width: var(--max-w); margin: 0 auto; }
+.sh { margin-bottom: 64px; }
+.sh.c { text-align: center; }
+.sh.c .section-sub { margin: 0 auto; }
+
+/* ═══════════════════════════════════════════
+   STATS STRIP
+═══════════════════════════════════════════ */
+.stats-strip {
+  background: var(--dark);
+  padding: 72px 5%;
+}
+.stats-strip-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.stat-block {
+  background: var(--dark-2);
+  padding: 44px 36px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.stat-block:hover { background: #171f2a; }
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 56px);
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.stat-num span { color: var(--teal-bright); }
+.stat-label {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════
+   TRIGGER EVENTS
+═══════════════════════════════════════════ */
+.triggers { background: var(--warm-white); }
+
+.trigger-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.trig-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 36px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+.trig-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.trig-card:hover::before { transform: scaleX(1); }
+.trig-card:hover {
+  border-color: rgba(26,138,150,0.3);
+  box-shadow: 0 12px 40px rgba(26,138,150,0.1);
+  transform: translateY(-6px);
+}
+
+.trig-num {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--teal);
+  margin-bottom: 20px;
+}
+.trig-icon {
+  width: 48px; height: 48px;
+  background: var(--teal-dim);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px;
+}
+.trig-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 1.75; }
+.trig-h {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--charcoal);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+.trig-p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 28px;
+}
+.trig-resolve {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--teal);
+}
+.trig-resolve::before { content: '→'; font-size: 14px; }
+
+/* ═══════════════════════════════════════════
+   SERVICES + PRICING
+═══════════════════════════════════════════ */
+.services { background: var(--white); }
+
+.transparent-note {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--text-faint);
+  text-align: center;
+  margin-top: -40px;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.transparent-note::before { content: '✓'; font-size: 13px; color: var(--teal); font-weight: 700; }
+
+.pricing-group { margin-bottom: 56px; }
+.pricing-group:last-child { margin-bottom: 0; }
+
+.pg-label {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.pg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pg-grid.two { grid-template-columns: repeat(2, 1fr); }
+
+.p-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px 24px 24px;
+  position: relative;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.p-card:hover {
+  border-color: rgba(26,138,150,0.35);
+  box-shadow: 0 6px 28px rgba(26,138,150,0.08);
+  transform: translateY(-3px);
+}
+.p-card.feat {
+  border-color: var(--teal);
+  background: linear-gradient(150deg, rgba(26,138,150,0.05) 0%, transparent 60%);
+}
+
+.p-badge {
+  position: absolute;
+  top: -1px; right: 18px;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 0 0 7px 7px;
+}
+
+.p-icon {
+  width: 40px; height: 40px;
+  background: var(--teal-dim);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.p-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 1.7; }
+
+.p-name {
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+.p-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 20px;
+}
+.p-price {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  color: var(--charcoal);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.p-price span { font-size: 18px; }
+.p-qualifier {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════
+   TEMPLATE CALLOUT (subtle)
+═══════════════════════════════════════════ */
+.tmpl-callout {
+  margin-top: 48px;
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.tmpl-callout-left {}
+.tmpl-callout-label {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+}
+.tmpl-callout-title {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+.tmpl-callout-sub {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+.tmpl-callout-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+  padding: 11px 22px;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.tmpl-callout-link:hover { background: var(--teal); color: #fff; }
+.tmpl-callout-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.2s; }
+.tmpl-callout-link:hover svg { transform: translateX(3px); }
+
+/* ═══════════════════════════════════════════
+   TRADE SELECTOR
+═══════════════════════════════════════════ */
+.trade-sel { background: var(--warm-white); }
+
+.trade-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.trade-btn {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.trade-btn:hover { border-color: var(--teal); color: var(--teal); }
+.trade-btn.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+.trade-btn-icon { font-size: 15px; }
+
+.trade-result {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  min-height: 200px;
+  transition: all 0.3s;
+}
+.trade-result-inner {
+  padding: 36px 40px;
+  display: none;
+}
+.trade-result-inner.active { display: block; }
+.trade-result-placeholder {
+  padding: 60px 40px;
+  text-align: center;
+  color: var(--text-faint);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.trade-result-label {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.trade-result-title {
+  font-family: var(--font-ui);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+}
+.trade-docs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.trade-doc-tag {
+  background: var(--teal-dim);
+  border: 1px solid rgba(26,138,150,0.2);
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.trade-doc-tag::before { content: '✓'; font-size: 11px; color: var(--teal); }
+.trade-result-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.trade-result-price {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--charcoal);
+}
+.trade-result-price small {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--text-faint);
+  font-weight: 400;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   FOUNDER SECTION
+═══════════════════════════════════════════ */
+.founder { background: var(--dark); position: relative; overflow: hidden; }
+.founder-glow {
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(26,138,150,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.founder-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.founder-lhs {}
+.founder-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,138,150,0.12);
+  border: 1px solid rgba(26,138,150,0.22);
+  border-radius: 100px;
+  padding: 6px 14px 6px 8px;
+  margin-bottom: 28px;
+}
+.founder-tag-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--teal-bright);
+  flex-shrink: 0;
+}
+.founder-tag-text {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--teal-bright);
+}
+.founder-h {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3vw, 42px);
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 22px;
+}
+.founder-p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.founder-rhs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.founder-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--r);
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.founder-card:hover { border-color: rgba(26,138,150,0.3); background: rgba(26,138,150,0.04); }
+.founder-card-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--teal-bright);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 40px;
+}
+.founder-card-title {
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.founder-card-desc { font-size: 13px; color: rgba(255,255,255,0.38); font-weight: 300; line-height: 1.65; }
+
+.founder-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.founder-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 8px 16px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.founder-social-link:hover { color: var(--teal-bright); border-color: rgba(26,138,150,0.4); background: rgba(26,138,150,0.08); }
+.founder-social-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+/* ═══════════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════════ */
+.process { background: var(--warm-white); }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+  padding-top: 8px;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 47px;
+  left: calc(16.67% + 48px);
+  right: calc(16.67% + 48px);
+  height: 0;
+  border-top: 2px dashed rgba(26,138,150,0.28);
+}
+
+.proc-step { padding: 0 40px 0 0; position: relative; }
+.proc-step:last-child { padding-right: 0; }
+.proc-num {
+  width: 90px; height: 90px;
+  background: var(--white);
+  border: 1.5px solid var(--teal);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  color: var(--teal);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(26,138,150,0.12);
+}
+.proc-h {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+.proc-p { font-size: 14px; color: var(--text-muted); line-height: 1.8; font-weight: 300; }
+
+/* ═══════════════════════════════════════════
+   WHY ACG
+═══════════════════════════════════════════ */
+.why { background: var(--dark); position: relative; overflow: hidden; }
+.why-glow {
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(26,138,150,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: 60px;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+}
+.why-card {
+  background: var(--dark);
+  padding: 48px 44px;
+  transition: background 0.25s;
+}
+.why-card:hover { background: #13191f; }
+.why-card-icon {
+  width: 52px; height: 52px;
+  background: rgba(26,138,150,0.12);
+  border: 1px solid rgba(26,138,150,0.22);
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+}
+.why-card-icon svg { width: 24px; height: 24px; stroke: var(--teal-bright); fill: none; stroke-width: 1.6; }
+.why-card-h {
+  font-family: var(--font-ui);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.why-card-p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.8; font-weight: 300; }
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq { background: var(--off-white); }
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.faq-q {
+  padding: 22px 24px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--charcoal);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: color 0.2s;
+  user-select: none;
+}
+.faq-q:hover { color: var(--teal); }
+.faq-icon {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--teal-dim);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.3s;
+}
+.faq-icon svg { width: 10px; height: 10px; stroke: var(--teal); fill: none; stroke-width: 2.5; stroke-linecap: round; transition: transform 0.3s; }
+.faq-item.open .faq-icon { background: var(--teal); transform: rotate(45deg); }
+.faq-item.open .faq-icon svg { stroke: #fff; }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-a-inner {
+  padding: 0 24px 22px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-weight: 300;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+.contact { background: var(--white); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 560px;
+  gap: 72px;
+  align-items: start;
+}
+
+.urgency-box {
+  background: linear-gradient(130deg, rgba(26,138,150,0.09), rgba(26,138,150,0.02));
+  border: 1px solid rgba(26,138,150,0.22);
+  border-radius: var(--r);
+  padding: 22px 26px;
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+.urgency-h { font-family: var(--font-ui); font-size: 13px; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+.urgency-p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+.c-details { display: flex; flex-direction: column; gap: 18px; }
+.c-item { display: flex; align-items: flex-start; gap: 14px; }
+.c-item-icon {
+  width: 38px; height: 38px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.c-item-icon svg { width: 17px; height: 17px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+.c-item-label {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 3px;
+}
+.c-item-value { font-size: 13.5px; font-weight: 500; color: var(--charcoal); }
+.c-item-value a { color: var(--teal); }
+.c-item-value a:hover { text-decoration: underline; }
+
+/* Form */
+.c-form-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 44px 40px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.05);
+}
+.form-h { font-family: var(--font-ui); font-size: 18px; font-weight: 700; color: var(--charcoal); margin-bottom: 6px; }
+.form-sub { font-size: 13.5px; color: var(--text-muted); font-weight: 300; margin-bottom: 30px; line-height: 1.6; }
+
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.f-group { margin-bottom: 16px; }
+.f-group label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+.f-group input,
+.f-group select,
+.f-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.f-group input:focus,
+.f-group select:focus,
+.f-group textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(26,138,150,0.1);
+}
+.f-group textarea { height: 110px; resize: vertical; font-weight: 300; line-height: 1.6; }
+.f-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239e9e9e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.f-submit {
+  width: 100%;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 7px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-top: 6px;
+}
+.f-submit:hover {
+  background: var(--teal-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(26,138,150,0.28);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer { background: var(--dark); border-top: 1px solid var(--border-dark); }
+
+.foot-top {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 64px 5% 56px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.foot-logo { overflow: hidden; height: 80px; display: flex; align-items: center; margin-bottom: 16px; }
+.foot-logo img { width: 240px; height: auto; filter: brightness(1.6); }
+.foot-tagline { font-family: var(--font-serif); font-style: italic; font-size: 13px; color: rgba(255,255,255,0.28); }
+.foot-blurb { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.75; font-weight: 300; margin-top: 14px; max-width: 280px; }
+
+.foot-col-h {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.26);
+  margin-bottom: 20px;
+}
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.foot-links a { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 300; transition: color 0.2s; }
+.foot-links a:hover { color: rgba(255,255,255,0.85); }
+
+.foot-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.foot-social-link {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.foot-social-link:hover { background: rgba(26,138,150,0.2); border-color: rgba(26,138,150,0.4); }
+.foot-social-link svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; stroke-width: 1.7; transition: stroke 0.2s; }
+.foot-social-link:hover svg { stroke: var(--teal-bright); }
+
+.foot-bottom {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 24px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.foot-copy { font-family: var(--font-ui); font-size: 11px; color: rgba(255,255,255,0.2); }
+.foot-links-bottom { display: flex; gap: 20px; }
+.foot-links-bottom a { font-family: var(--font-ui); font-size: 11px; color: rgba(255,255,255,0.25); transition: color 0.2s; }
+.foot-links-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 56px; padding-top: calc(var(--nav-h) + 64px); }
+  .doc-card { max-width: 440px; }
+  .stats-strip-inner { grid-template-columns: repeat(2,1fr); }
+  .founder-inner { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid .c-form-wrap { order: -1; }
+  .foot-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .foot-top > :first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .sw { padding: 72px 5%; }
+  .trigger-grid { grid-template-columns: 1fr; }
+  .pg-grid { grid-template-columns: 1fr 1fr; }
+  .pg-grid.two { grid-template-columns: 1fr; }
+  .trade-grid { gap: 8px; }
+  .process-steps { grid-template-columns: 1fr; gap: 44px; }
+  .process-steps::before { display: none; }
+  .proc-step { padding: 0 0 0 28px; border-left: 2px dashed rgba(26,138,150,0.28); }
+  .proc-num { width: 64px; height: 64px; font-size: 24px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .founder-inner { grid-template-columns: 1fr; gap: 48px; }
+  .foot-top { grid-template-columns: 1fr; gap: 36px; }
+  .foot-top > :first-child { grid-column: auto; }
+  .f-row { grid-template-columns: 1fr; }
+  .c-form-wrap { padding: 32px 24px; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .hero-stats { gap: 24px; }
+  .stats-strip-inner { grid-template-columns: repeat(2,1fr); }
+  .templates-cta { flex-direction: column; align-items: stretch; }
+  .templates-bundle { min-width: unset; }
+}
+
+@media (max-width: 520px) {
+  .pg-grid { grid-template-columns: 1fr; }
+  .trust-bar-inner { gap: 14px; }
+  .trust-sep { display: none; }
+  .stats-strip-inner { grid-template-columns: 1fr 1fr; }
+  .foot-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="Aegis-removebg-preview.png" alt="Aegis Compliance Group">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#trade-sel">Your Trade</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#why">Why ACG</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<nav class="nav-drawer" id="drawer">
+  <a href="#services">Services &amp; Pricing</a>
+  <a href="#trade-sel">Your Trade</a>
+  <a href="#process">How It Works</a>
+  <a href="#why">Why ACG</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact" class="drawer-cta">Get a Free Quote →</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────── -->
+<section class="hero">
+  <div class="noise-layer"></div>
+  <div class="hero-glow-a"></div>
+  <div class="hero-glow-b"></div>
+  <div class="hero-glow-c"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text">48-hour turnaround — always</span>
+      </div>
+      <h1 class="hero-h1 reveal d1">
+        Your next site start<br>shouldn't wait on <em>paperwork.</em>
+      </h1>
+      <p class="hero-p reveal d2">Aegis Compliance Group delivers client-ready RAMS, method statements, and compliance packs within 48 hours — fixed price, no retainer, no back and forth. So your site manager stays on site, not at a desk.</p>
+      <div class="hero-actions reveal d3">
+        <a href="#contact" class="btn-primary">
+          Get a free quote
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5h9M7.5 3l4.5 4.5L7.5 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#services" class="btn-outline">
+          View pricing
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5h9M7.5 3l4.5 4.5L7.5 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div>
+          <div class="hero-stat-num">48<span>hr</span></div>
+          <div class="hero-stat-label">Turnaround<br>guaranteed</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">£<span>55</span></div>
+          <div class="hero-stat-label">Starting<br>price</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">11<span>+</span></div>
+          <div class="hero-stat-label">Document<br>types</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">0</div>
+          <div class="hero-stat-label">Retainers<br>required</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating doc card -->
+    <div class="reveal d2">
+      <div class="doc-card">
+        <div class="dc-head">
+          <div class="dc-head-brand">
+            <div class="dc-shield">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="dc-brand-name">Aegis Compliance Group</div>
+          </div>
+          <div class="dc-ref">ACG-PACK-2026-012</div>
+        </div>
+        <div class="dc-body">
+          <div class="dc-meta">
+            <div>
+              <div class="dc-meta-label">Contractor</div>
+              <div class="dc-meta-value">Meridian Build Ltd</div>
+            </div>
+            <div>
+              <div class="dc-meta-label">Project</div>
+              <div class="dc-meta-value">School roof replacement</div>
+            </div>
+            <div>
+              <div class="dc-meta-label">Client</div>
+              <div class="dc-meta-value">Hull City Council</div>
+            </div>
+            <div>
+              <div class="dc-meta-label">Sector</div>
+              <div class="dc-meta-value">Education / Public</div>
+            </div>
+          </div>
+          <div class="dc-list-label">Compliance Pack Contents</div>
+          <div class="dc-item"><div class="dc-tick"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3"/></svg></div>Method Statement</div>
+          <div class="dc-item"><div class="dc-tick"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3"/></svg></div>Risk Assessment</div>
+          <div class="dc-item"><div class="dc-tick"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3"/></svg></div>COSHH Assessment</div>
+          <div class="dc-item"><div class="dc-tick"><svg viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3"/></svg></div>Construction Phase Plan</div>
+        </div>
+        <div class="dc-foot">
+          <div class="dc-status"><div class="dc-dot"></div>Ready for submission</div>
+          <div class="dc-timer">Delivered in 41 hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ─────────────────────────── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Contractors serving</span>
+    <div class="trust-sep"></div>
+    <div class="trust-pills">
+      <span class="trust-pill">Local Authorities</span>
+      <span class="trust-pill">NHS Trusts</span>
+      <span class="trust-pill">Housing Associations</span>
+      <span class="trust-pill">Schools &amp; Academies</span>
+      <span class="trust-pill">Principal Contractors</span>
+      <span class="trust-pill">FM Companies</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS STRIP ───────────────────────── -->
+<section class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat-block reveal">
+      <div class="stat-num">48<span>hr</span></div>
+      <div class="stat-label">Guaranteed<br>turnaround</div>
+    </div>
+    <div class="stat-block reveal d1">
+      <div class="stat-num"><span>£</span>55</div>
+      <div class="stat-label">Starting price<br>per document</div>
+    </div>
+    <div class="stat-block reveal d2">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Fixed pricing<br>no hidden extras</div>
+    </div>
+    <div class="stat-block reveal d3">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Retainers<br>required</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRIGGER EVENTS ────────────────────── -->
+<section class="sw triggers" id="triggers">
+  <div class="si">
+    <div class="sh">
+      <p class="eyebrow reveal">Sound familiar?</p>
+      <h2 class="section-title reveal d1">The three moments contractors call us</h2>
+      <p class="section-sub reveal d2">ACG was built around the situations that actually cause problems on site. If any of these hit close to home, we can help — and fast.</p>
+    </div>
+    <div class="trigger-grid">
+
+      <div class="trig-card reveal">
+        <p class="trig-num">01</p>
+        <div class="trig-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.9 15.91 19.79 19.79 0 011.93 7.4 2 2 0 013.91 5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 12.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 19.92v-3z"/></svg>
+        </div>
+        <h3 class="trig-h">"Your principal contractor just rang asking for RAMS. Site start is Friday."</h3>
+        <p class="trig-p">You've got the job, your team's ready — but without the documentation the PC won't let you on site. And they're not negotiating the deadline.</p>
+        <div class="trig-resolve">ACG delivers a full RAMS pack within 48 hours</div>
+      </div>
+
+      <div class="trig-card reveal d1">
+        <p class="trig-num">02</p>
+        <div class="trig-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <h3 class="trig-h">"You've just won the tender. The compliance pack is the only thing between you and a start date."</h3>
+        <p class="trig-p">Good news travels fast — so does pressure. You need CDM-compliant documentation before you mobilise, and your site manager can't sit at a desk writing it.</p>
+        <div class="trig-resolve">Full compliance pack ready before you mobilise</div>
+      </div>
+
+      <div class="trig-card reveal d2">
+        <p class="trig-num">03</p>
+        <div class="trig-icon">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3 class="trig-h">"An HSE visit flagged your documentation. You need it tightened up before the next project."</h3>
+        <p class="trig-p">Generic templates and out-of-date paperwork don't hold up under inspection. Weak docs put your reputation — and your public sector contracts — at real risk.</p>
+        <div class="trig-resolve">HSE-aligned documentation built to pass scrutiny</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES + PRICING ────────────────── -->
+<section class="sw services" id="services">
+  <div class="si">
+    <div class="sh c">
+      <p class="eyebrow centered reveal">What we deliver</p>
+      <h2 class="section-title wide reveal d1">Everything you need to stay compliant and win work</h2>
+    </div>
+    <p class="transparent-note reveal d2">Transparent, fixed pricing. No quotes that disappear. No hidden extras. Not VAT registered — what you see is what you pay.</p>
+
+    <!-- Documents -->
+    <div class="pricing-group reveal" id="pricing">
+      <div class="pg-label">Compliance Documents</div>
+      <div class="pg-grid">
+
+        <div class="p-card">
+          <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="p-name">Method Statement</div>
+          <div class="p-desc">Site-specific, task-by-task. Written to meet your client's exact requirements and pass first time.</div>
+          <div class="p-price"><span>£</span>65</div>
+          <div class="p-qualifier">per document</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="p-name">Risk Assessment</div>
+          <div class="p-desc">Task-specific, aligned with HSE guidelines and your actual site conditions. Not a generic template.</div>
+          <div class="p-price"><span>£</span>65</div>
+          <div class="p-qualifier">per document</div>
+        </div>
+
+        <div class="p-card feat">
+          <div class="p-badge">Most popular</div>
+          <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="p-name">RAMS Pack</div>
+          <div class="p-desc">Method Statement + Risk Assessment combined. The most common pre-start requirement — bundled and ready to submit.</div>
+          <div class="p-price"><span>£</span>110</div>
+          <div class="p-qualifier">saves £20 vs. buying separately</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="p-name">COSHH Assessment</div>
+          <div class="p-desc">Full substance hazard documentation for all materials on your project. WEL-referenced and site-specific.</div>
+          <div class="p-price"><span>£</span>55</div>
+          <div class="p-qualifier">per document</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Full Packs -->
+    <div class="pricing-group reveal">
+      <div class="pg-label">Full Packs</div>
+      <div class="pg-grid two">
+
+        <div class="p-card">
+          <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
+          <div class="p-name">Full Compliance Pack</div>
+          <div class="p-desc">Complete pre-construction documentation — Method Statement, Risk Assessment, COSHH, and supporting documents. Formatted and ready to submit to your client or principal contractor.</div>
+          <div class="p-price"><span>£</span>220</div>
+          <div class="p-qualifier">complete pack — 48hr turnaround</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="p-name">Construction Phase Plan</div>
+          <div class="p-desc">CDM 2015-compliant CPP for notifiable projects. Meets both principal designer and principal contractor requirements for public sector and framework clients.</div>
+          <div class="p-price"><span>£</span>175</div>
+          <div class="p-qualifier">per project</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Ongoing -->
+    <div class="pricing-group reveal">
+      <div class="pg-label">Estimating &amp; Ongoing Support</div>
+      <div class="pg-grid two">
+
+        <div class="p-card">
+          <div class="p-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="p-name">Estimating Support</div>
+          <div class="p-desc">Quantity surveying and cost estimating for tenders. Full take-offs, competitive build-ups, and accurate pricing — without the overhead of a full QS. Ideal for contractors pricing public sector and framework work.</div>
+          <div class="p-price"><span>£</span>125–350</div>
+          <div class="p-qualifier">per project, depending on scope</div>
+        </div>
+
+        <div class="p-card feat">
+          <div class="p-badge">Best value</div>
+          <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="p-name">Monthly Retainer</div>
+          <div class="p-desc">Ongoing compliance support for contractors with regular work. Priority turnaround, dedicated point of contact, no per-document fees within scope. Cancel anytime — no lock-in.</div>
+          <div class="p-price"><span>£</span>125</div>
+          <div class="p-qualifier">per month — no lock-in</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── TRADE SELECTOR ─────────────────────── -->
+<section class="sw trade-sel" id="trade-sel">
+  <div class="si">
+    <div class="sh">
+      <p class="eyebrow reveal">Find what you need</p>
+      <h2 class="section-title reveal d1">What's your trade?</h2>
+      <p class="section-sub reveal d2">Select your trade below and we'll show you exactly which documents you typically need — and what it'll cost to have ACG produce them for you.</p>
+    </div>
+
+    <div class="trade-grid reveal">
+      <button class="trade-btn" data-trade="roofing"><span class="trade-btn-icon">🏗️</span> Roofing</button>
+      <button class="trade-btn" data-trade="groundworks"><span class="trade-btn-icon">⛏️</span> Groundworks</button>
+      <button class="trade-btn" data-trade="me"><span class="trade-btn-icon">⚡</span> M&amp;E / Electrical</button>
+      <button class="trade-btn" data-trade="scaffolding"><span class="trade-btn-icon">🔩</span> Scaffolding</button>
+      <button class="trade-btn" data-trade="fitout"><span class="trade-btn-icon">🪚</span> Fit-Out / Interiors</button>
+      <button class="trade-btn" data-trade="civils"><span class="trade-btn-icon">🚧</span> Civil Engineering</button>
+      <button class="trade-btn" data-trade="demolition"><span class="trade-btn-icon">🏚️</span> Demolition</button>
+      <button class="trade-btn" data-trade="cladding"><span class="trade-btn-icon">🏢</span> Cladding / Steelwork</button>
+      <button class="trade-btn" data-trade="painting"><span class="trade-btn-icon">🖌️</span> Painting &amp; Decorating</button>
+      <button class="trade-btn" data-trade="flooring"><span class="trade-btn-icon">🪣</span> Flooring</button>
+      <button class="trade-btn" data-trade="asbestos"><span class="trade-btn-icon">⚠️</span> Asbestos Removal</button>
+      <button class="trade-btn" data-trade="gas"><span class="trade-btn-icon">🔥</span> Gas / Plumbing</button>
+    </div>
+
+    <div class="trade-result reveal d1">
+      <div class="trade-result-placeholder" id="trade-placeholder">← Select your trade to see what you need</div>
+
+      <div class="trade-result-inner" id="tr-roofing">
+        <div class="trade-result-label">Roofing Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for roofing works</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Working at Height RA</span>
+          <span class="trade-doc-tag">Manual Handling RA</span>
+          <span class="trade-doc-tag">Hot Works Permit (if applicable)</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-groundworks">
+        <div class="trade-result-label">Groundworks Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for groundworks</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Excavation RA</span>
+          <span class="trade-doc-tag">Plant &amp; Equipment RA</span>
+          <span class="trade-doc-tag">Traffic Management Plan</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-me">
+        <div class="trade-result-label">M&amp;E / Electrical Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for M&amp;E works</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Electrical Isolation RA</span>
+          <span class="trade-doc-tag">Working at Height RA</span>
+          <span class="trade-doc-tag">Permit to Work (if required)</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-scaffolding">
+        <div class="trade-result-label">Scaffolding Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for scaffolding erection</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">Working at Height RA</span>
+          <span class="trade-doc-tag">Manual Handling RA</span>
+          <span class="trade-doc-tag">Scaffold Inspection Records</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-fitout">
+        <div class="trade-result-label">Fit-Out &amp; Interior Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for interior fit-out</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Dust &amp; Fume RA</span>
+          <span class="trade-doc-tag">Live Environment RA</span>
+          <span class="trade-doc-tag">Fire Door Installation (if applicable)</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-civils">
+        <div class="trade-result-label">Civil Engineering Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for civil engineering works</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">Traffic Management Plan</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">CDM Notification (F10)</span>
+          <span class="trade-doc-tag">Construction Phase Plan</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£220 <small>Full Compliance Pack — recommended for notifiable projects</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-demolition">
+        <div class="trade-result-label">Demolition Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for demolition works</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Asbestos Register</span>
+          <span class="trade-doc-tag">Dust &amp; Noise RA</span>
+          <span class="trade-doc-tag">Plant Operation RA</span>
+          <span class="trade-doc-tag">CDM Notification (F10)</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£220 <small>Full Compliance Pack — recommended for demolition</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-cladding">
+        <div class="trade-result-label">Cladding &amp; Steelwork Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for cladding and steelwork</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Working at Height RA</span>
+          <span class="trade-doc-tag">Lifting &amp; Crane RA</span>
+          <span class="trade-doc-tag">Manual Handling RA</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-painting">
+        <div class="trade-result-label">Painting &amp; Decorating Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for painting works</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">VOC &amp; Solvent RA</span>
+          <span class="trade-doc-tag">Working at Height RA</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-flooring">
+        <div class="trade-result-label">Flooring Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for flooring works</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Adhesive &amp; Solvent RA</span>
+          <span class="trade-doc-tag">Manual Handling RA</span>
+          <span class="trade-doc-tag">Subfloor Preparation RA</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-asbestos">
+        <div class="trade-result-label">Asbestos Removal Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for asbestos removal</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Asbestos Register</span>
+          <span class="trade-doc-tag">RPE &amp; PPE RA</span>
+          <span class="trade-doc-tag">Enclosure &amp; Clearance Procedures</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£220 <small>Full Compliance Pack — recommended for licensed removal</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="trade-result-inner" id="tr-gas">
+        <div class="trade-result-label">Gas &amp; Plumbing Contractors</div>
+        <div class="trade-result-title">Typical RAMS requirements for gas and plumbing works</div>
+        <div class="trade-docs">
+          <span class="trade-doc-tag">Method Statement</span>
+          <span class="trade-doc-tag">Risk Assessment</span>
+          <span class="trade-doc-tag">COSHH Assessment</span>
+          <span class="trade-doc-tag">Gas Isolation RA</span>
+          <span class="trade-doc-tag">Hot Works Permit</span>
+          <span class="trade-doc-tag">Confined Space Permit (if applicable)</span>
+        </div>
+        <div class="trade-result-cta">
+          <div class="trade-result-price">£110 <small>Full RAMS Pack — most common requirement</small></div>
+          <a href="#contact" class="btn-primary" style="font-size:12px;padding:12px 22px;">Get a quote →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDER ────────────────────────────── -->
+<section class="sw founder" id="founder">
+  <div class="founder-glow"></div>
+  <div class="si">
+    <div class="founder-inner">
+      <div class="founder-lhs">
+        <div class="founder-tag reveal">
+          <div class="founder-tag-dot"></div>
+          <span class="founder-tag-text">The story behind ACG</span>
+        </div>
+        <h2 class="founder-h reveal d1">Built on site.<br>Not in a boardroom.</h2>
+        <p class="founder-p reveal d2">Aegis Compliance Group was founded by a 21-year-old apprentice Quantity Surveyor with hands-on site experience, a Level 4 Site Supervisor qualification in progress, and a clear understanding of the problem every small subcontractor faces: compliance paperwork takes time you don't have, and the consultants who produce it have never been on site.</p>
+        <p class="founder-p reveal d2">ACG was built to fix that. Not by adding more consultants in suits, but by combining real construction knowledge with a smarter, faster process — so the documents that reach your principal contractor are accurate, relevant, and ready to go.</p>
+        <div class="founder-social reveal d3">
+          <a href="https://www.linkedin.com/in/ben-reveley-9319a6414/" target="_blank" rel="noopener" class="founder-social-link">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://helpbnk.com/@benreveley/posts" target="_blank" rel="noopener" class="founder-social-link">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            HelpBnk
+          </a>
+          <a href="https://www.instagram.com/aegiscompliancegroup/" target="_blank" rel="noopener" class="founder-social-link">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+      <div class="founder-rhs reveal d2">
+        <div class="founder-card">
+          <div class="founder-card-num">21</div>
+          <div>
+            <div class="founder-card-title">Founded at 21</div>
+            <div class="founder-card-desc">ACG was built from scratch alongside a full-time QS traineeship — every process, every document, every system built around real site experience, not theory.</div>
+          </div>
+        </div>
+        <div class="founder-card">
+          <div class="founder-card-num">L4</div>
+          <div>
+            <div class="founder-card-title">Level 4 Site Supervisor qualification</div>
+            <div class="founder-card-desc">Every document we produce is underpinned by genuine site knowledge. We know what a principal contractor wants to see because we've been on the sites they build.</div>
+          </div>
+        </div>
+        <div class="founder-card">
+          <div class="founder-card-num">48</div>
+          <div>
+            <div class="founder-card-title">48-hour guarantee — personal commitment</div>
+            <div class="founder-card-desc">This isn't a call centre. When you contact ACG, you're speaking directly to the person producing your documents. That's why the quality is consistent and the turnaround is real.</div>
+          </div>
+        </div>
+        <div class="founder-card">
+          <div class="founder-card-num">0</div>
+          <div>
+            <div class="founder-card-title">Zero generic documents</div>
+            <div class="founder-card-desc">We don't have a library of cut-and-paste templates we send out. Every document is written for your specific trade, task, site, and client. That's why they get approved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ───────────────────────────── -->
+<section class="sw process" id="process">
+  <div class="si">
+    <div class="sh">
+      <p class="eyebrow reveal">How it works</p>
+      <h2 class="section-title reveal d1">From enquiry to submission in three steps</h2>
+      <p class="section-sub reveal d2">No lengthy onboarding. No forms to fill in triplicate. Just tell us what you need — we handle the rest.</p>
+    </div>
+    <div class="process-steps">
+      <div class="proc-step reveal">
+        <div class="proc-num">1</div>
+        <h3 class="proc-h">Tell us about the project</h3>
+        <p class="proc-p">Drop us a message or fill in the quick form below. We need the trade, the task, the client, and your deadline. That's it — no lengthy briefing documents, no back-and-forth before we start.</p>
+      </div>
+      <div class="proc-step reveal d1">
+        <div class="proc-num">2</div>
+        <h3 class="proc-h">We get to work</h3>
+        <p class="proc-p">Our AI-powered system produces your documentation. Every document is reviewed and signed off by a qualified site supervisor — someone who understands the work, not just the form. Accurate, specific, and built to pass.</p>
+      </div>
+      <div class="proc-step reveal d2">
+        <div class="proc-num">3</div>
+        <h3 class="proc-h">Submit with confidence</h3>
+        <p class="proc-p">You receive completed documents within 48 hours — professionally formatted, correctly referenced, and ready to go straight to your PC or client. We don't do rewrites because we don't do rejections.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ACG ───────────────────────────── -->
+<section class="sw why" id="why">
+  <div class="why-glow"></div>
+  <div class="si" style="position:relative;z-index:1;">
+    <div class="sh">
+      <p class="eyebrow light reveal">Why choose ACG</p>
+      <h2 class="section-title white wide reveal d1">Built for contractors, not boardrooms</h2>
+      <p class="section-sub dim reveal d2">We understand what's actually at stake when paperwork blocks a site start — the pressure, the lost day-rate, the client phone call. ACG was built to make sure that never happens to you.</p>
+    </div>
+    <div class="why-grid">
+
+      <div class="why-card reveal">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <h3 class="why-card-h">AI-powered, expert-reviewed</h3>
+        <p class="why-card-p">We combine the speed of AI with real site knowledge. Every document is reviewed by a qualified site supervisor before it leaves us. Fast doesn't mean careless — it means we've built a better process.</p>
+      </div>
+
+      <div class="why-card reveal d1">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 class="why-card-h">48-hour turnaround, always</h3>
+        <p class="why-card-p">When a site start is on the line, speed is the service. We deliver every standard compliance document within 48 hours — most come back faster. If you're up against a tighter deadline, say so and we'll do everything we can.</p>
+      </div>
+
+      <div class="why-card reveal d2">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3 class="why-card-h">Documents that actually get approved</h3>
+        <p class="why-card-p">We know what principal contractors working with local authorities, NHS trusts, and housing associations want to see. Our documentation is written to pass — not just to satisfy a template or tick a CDM box.</p>
+      </div>
+
+      <div class="why-card reveal d3">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <h3 class="why-card-h">Real site experience behind every document</h3>
+        <p class="why-card-p">ACG is run by people with hands-on construction backgrounds — QS training, site supervisor experience, and a Level 4 Site Supervisor qualification in progress. We understand the work because we've done the work.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────── -->
+<section class="sw faq" id="faq">
+  <div class="si">
+    <div class="sh c">
+      <p class="eyebrow centered reveal">Common questions</p>
+      <h2 class="section-title wide reveal d1">Everything you need to know</h2>
+      <p class="section-sub reveal d2" style="margin:0 auto;">If your question isn't answered here, just get in touch — we'll come back same day.</p>
+    </div>
+
+    <div class="faq-grid">
+
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          How does the 48-hour turnaround work?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Once you submit your enquiry with the project details, we start work immediately. You'll receive your completed documents within 48 hours — most jobs come back faster. If you have a tighter deadline, tell us upfront and we'll always confirm whether we can meet it before you commit.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal d1">
+        <div class="faq-q">
+          Are your documents trade-specific?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes — every document is written for your specific trade and task, not pulled from a generic library. We cover roofing, groundworks, M&amp;E, civils, fit-out, scaffolding, demolition, cladding, flooring and more. If your trade isn't listed, get in touch — we'll let you know if we can help.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          What format do I receive the documents in?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">All documents are delivered as professionally formatted Word (.docx) and PDF files — ready to submit straight to your principal contractor or client, or print and keep on site. They're branded, referenced, and formatted to the standard that gets approved.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal d1">
+        <div class="faq-q">
+          Are you VAT registered?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">No — we're not VAT registered, which means there are no hidden extras on top of our listed prices. What you see on the pricing page is exactly what you pay. Simple.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          What information do you need from me?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">We need the basics: your trade, the task being carried out, the site address or project name, the client or principal contractor, and your deadline. If there are specific hazards, plant, or site conditions we should know about, include those too. The more context you give us, the more accurate the documents will be.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal d1">
+        <div class="faq-q">
+          What if my principal contractor requests changes?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">We include one round of amendments on every document at no extra cost. In practice, this rarely happens — because we write documents to the standard that principal contractors working with local authorities, housing associations and NHS trusts actually require. But if revisions are needed, we'll turn them around fast.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          Do you cover the whole UK?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. We're based in Hull, East Yorkshire, but we serve contractors across the whole of the UK. Everything is handled remotely — you submit your details, we produce the documents, and deliver them straight to your inbox.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal d1">
+        <div class="faq-q">
+          What's the difference between the templates and the full service?
+          <div class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Our templates are blank, editable documents you download and fill in yourself — perfect if you know your trade well and just need the right framework fast. The full service means we write the document for you, tailored to your specific project, trade, and client. If you're not sure which you need, the full service is the safer choice.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ───────────────────────────── -->
+<section class="sw contact" id="contact">
+  <div class="si">
+    <div class="contact-grid">
+
+      <div class="contact-lhs">
+        <p class="eyebrow reveal">Get in touch</p>
+        <h2 class="section-title reveal d1">Ready to get your docs sorted?</h2>
+        <p class="section-sub reveal d2">Tell us about your project and we'll come back with a quote within a few hours. No obligation, no pushy sales calls — just a straight answer on whether we can help and what it'll cost.</p>
+
+        <div class="urgency-box reveal">
+          <div class="urgency-h">🕐 Need it urgently?</div>
+          <div class="urgency-p">If you've got a hard deadline, say so in your message. We prioritise urgent requests and will always confirm whether we can meet your timescale before you commit to anything.</div>
+        </div>
+
+        <div class="c-details reveal">
+          <div class="c-item">
+            <div class="c-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <div class="c-item-label">Email</div>
+              <div class="c-item-value"><a href="mailto:benreveley@aegiscompliancegroup.co.uk">benreveley@aegiscompliancegroup.co.uk</a></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="c-item-label">Location</div>
+              <div class="c-item-value">Hull, East Yorkshire — serving contractors nationwide</div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div>
+              <div class="c-item-label">Response time</div>
+              <div class="c-item-value">Quote within a few hours. Documents within 48.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-form-wrap reveal d1">
+        <div class="form-h">Request a free quote</div>
+        <div class="form-sub">We'll review your requirements and come back same day.</div>
+        <form action="https://formspree.io/f/xrevpoko" method="POST">
+          <div class="f-row">
+            <div class="f-group">
+              <label for="f-name">Your name</label>
+              <input type="text" id="f-name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="f-group">
+              <label for="f-company">Company</label>
+              <input type="text" id="f-company" name="company" placeholder="Smith Contractors Ltd">
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="f-email">Email address</label>
+            <input type="email" id="f-email" name="email" placeholder="john@smithcontractors.co.uk" required>
+          </div>
+          <div class="f-group">
+            <label for="f-service">Service required</label>
+            <select id="f-service" name="service">
+              <option value="">Select a service...</option>
+              <option>Method Statement — £65</option>
+              <option>Risk Assessment — £65</option>
+              <option>RAMS Pack — £110</option>
+              <option>COSHH Assessment — £55</option>
+              <option>Full Compliance Pack — £220</option>
+              <option>Construction Phase Plan — £175</option>
+              <option>Estimating Support — from £125</option>
+              <option>Monthly Retainer — £125/month</option>
+              <option>Not sure — I need advice</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="f-msg">Project details</label>
+            <textarea id="f-msg" name="message" placeholder="Trade, task, location, and when you need it by..."></textarea>
+          </div>
+          <button type="submit" class="f-submit">Send enquiry →</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────── -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-logo"><img src="Aegis-removebg-preview.png" alt="Aegis Compliance Group"></div>
+      <div class="foot-tagline">Your Shield for Smarter Solutions</div>
+      <p class="foot-blurb">AI-powered compliance consultancy for contractors across the UK. RAMS, method statements, risk assessments, and estimating support — fast, accurate, and approved first time.</p>
+      <div class="foot-social">
+        <a href="https://www.linkedin.com/in/ben-reveley-9319a6414/" target="_blank" rel="noopener" class="foot-social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61590920540532" target="_blank" rel="noopener" class="foot-social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/aegiscompliancegroup/" target="_blank" rel="noopener" class="foot-social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://helpbnk.com/@benreveley/posts" target="_blank" rel="noopener" class="foot-social-link" aria-label="HelpBnk">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-h">Services</div>
+      <ul class="foot-links">
+        <li><a href="#services">Method Statements</a></li>
+        <li><a href="#services">Risk Assessments</a></li>
+        <li><a href="#services">RAMS Packs</a></li>
+        <li><a href="#services">COSHH Assessments</a></li>
+        <li><a href="#services">Compliance Packs</a></li>
+        <li><a href="#services">Estimating Support</a></li>
+        <li><a href="#services">Monthly Retainer</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-h">Get Started</div>
+      <ul class="foot-links">
+        <li><a href="#trade-sel">Find your trade</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+        <li><a href="https://benjamin256.gumroad.com/" target="_blank" rel="noopener">Template Store</a></li>
+        <li><a href="https://helpbnk.com/@benreveley/posts" target="_blank" rel="noopener">Follow on HelpBnk</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-h">Company</div>
+      <ul class="foot-links">
+        <li><a href="#why">Why ACG</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/ben-reveley-9319a6414/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://helpbnk.com/@benreveley/posts" target="_blank" rel="noopener">HelpBnk</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Aegis Compliance Group. Hull, East Yorkshire. All rights reserved.</div>
+    <div class="foot-links-bottom">
+      <a href="#contact">Contact</a>
+      <a href="https://benjamin256.gumroad.com/" target="_blank" rel="noopener">Template Store</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('nav');
+const setNavState = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+window.addEventListener('scroll', setNavState, { passive: true });
+setNavState();
+
+/* ── MOBILE MENU ── */
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  drawer.classList.toggle('open');
+});
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  burger.classList.remove('open');
+  drawer.classList.remove('open');
+}));
+
+/* ── SCROLL REVEAL ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), 100 + i * 90);
+  });
+  document.querySelectorAll('.reveal:not(.hero .reveal)').forEach(el => io.observe(el));
+});
+
+/* ── TRADE SELECTOR ── */
+const tradeBtns = document.querySelectorAll('.trade-btn');
+const tradeResults = document.querySelectorAll('.trade-result-inner');
+const tradePlaceholder = document.getElementById('trade-placeholder');
+
+tradeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const trade = btn.dataset.trade;
+    tradeBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    tradeResults.forEach(r => r.classList.remove('active'));
+    if (tradePlaceholder) tradePlaceholder.style.display = 'none';
+    const result = document.getElementById('tr-' + trade);
+    if (result) result.classList.add('active');
+  });
+});
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+</body>
+</html>
